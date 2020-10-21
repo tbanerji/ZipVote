@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<div class="textStuff">
+
+    <p> Office: {{ oinfo.oname }} </p>
+
+    <p> State: {{ oinfo.ostate }} </p>
+
+    <p> Heldby: <a href="{{url_for('politician',person_id = oinfo['heldby'])}}">{{ oinfo.heldbyname }}</a>
+
+    <p> Current Terms: {{ oinfo.terms }} </p>
+
+    <p> Term Length: {{ oinfo.tyears }} years </p>
+
+    <p> Next Election: {{ oinfo.nextvote }} </p>
+
+    </div >
+
+{% endblock %}

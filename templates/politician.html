@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <img src = "{{pinfo.imglink}}" alt="{{pinfo.name}}" width="400" height=auto>
+
+    <table>
+    <tr>
+    <th> {{pinfo.name}} ID: {{pinfo.person_id}}</th>
+    <tr>
+        <td>DoB</td>
+        <td>{{pinfo.dob}}</td>
+
+    </tr>
+    <tr>
+        <td>
+            Office Name
+        </td>
+        <td>
+            <a href="{{pinfo.offlink}}">{{pinfo.offname}}</a> </p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Political Party
+        </td>
+        <td> {{pinfo.party}}</td>
+    </tr>
+    <tr>
+        <td>
+            Social Media Account
+        </td>
+        <td>
+            <a href="{{pinfo.infolink}}">{{pinfo.infolink}}</a> </p>
+        </td>
+        <td>
+        </tr>
+    <tr>
+        <td>
+            Causes Supported
+        </td>
+        <td>
+            {%for item in policies%}
+            <ul>
+                <li><a href="{{item['link']}}">{{item['stance']}} {{item['policies']}}</a> </li>
+           
+                  </ul>
+                  {%endfor%}
+        </td>
+
+    </tr>
+    </tr>
+</table>
+
+
+<h2> Upload a File </h2>
+<p>On this page, you can upload a pdf, doc or docx file with data on a politician. 
+      We will review it and update the information to our site if valid. 
+      Please include sources!</p>
+<form action = "{{url_for('uploading')}}" method = "POST" 
+         enctype = "multipart/form-data">
+         <label for="politician">Upload Details on a Politician </label>
+         <label><input type = "file" name = "file" /></label>
+         <input type = "submit" value="upload"></input>
+         </select>
+      </form>
+
+
+
+{%endblock%}

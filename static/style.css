@@ -1,0 +1,108 @@
+   body{
+        background-color:white;
+
+        
+        background-image: url("https://github.com/sarahsanson/zipvote/blob/master/ZipvoteBG.png?raw=true");
+   
+   }
+
+   header{
+       
+       background-color: white;
+       border: 2px solid #751ab1;
+   }
+
+   nav li {
+       display: inline-block;
+       margin-right: 20px;
+   }
+
+   p{
+       color:black;
+       text-align:center;
+   }
+
+   H1 {
+       color:black;
+       text-align: center;
+   }
+
+   H2 {
+       color:black;
+       font-size: 200%;
+       text-align: center;
+   }
+   h3{
+       text-align:center;
+   }
+   li {
+       color: #751ab1;
+   }
+   
+   #msg { 
+       color: gold;
+       font-size: large;
+      font-style: italic;
+   }
+   
+   form {
+       background-color: white;
+       display: inline-block;
+       border: 4px solid #751ab1;
+       padding: 1ex;
+       border-radius: 3ex;
+       text-align: center;
+   }
+   
+   [type=submit] {
+       font-size: 2em;
+       font-weight: bold;
+       border: 1px solid white;
+       border-radius: 0.5em;
+       background-color: #e2b7ff;
+   }
+   
+   fieldset {
+       display: inline-block;
+   }
+   
+   #iconlist {
+       list-style-type: none; 
+       padding: 1px;
+   }
+   
+   #iconlist li {
+       display: inline;
+   }
+   
+   image{
+       float: left;
+   }
+   table{
+       text-align:center;
+       background-color: white;
+       width:30%;
+       height: 400%;
+       margin-left: 0%;
+       margin-right:0%;
+      
+   }
+   table,td{
+       border:solid black 1px;
+   }
+   table.menu {
+    width: auto;
+    float: left;
+    margin-right:0px;
+    margin-left:auto;
+}
+
+ol.a {
+    text-align:center;
+}
+
+.textStuff {
+    border : 2px solid purple ;
+    background-color:white;
+    padding: 1ex;
+}

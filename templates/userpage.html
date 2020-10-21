@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h3> Welcome to your page! You are logged in as {{username}} UID: {{uid}} </h3>
+
+<p>On your page, you can insert and delete from a list of politicians and update your reactions to them so that
+    that you can remember your stance toward politicians in the upcoming elections and have easy access to their information!
+</p>
+
+<h3>Add a Politician to Your Page</h3>
+<form method="POST" action="{{url_for('fav')}}">
+    <label for="menu">Politicians in database</label>
+    <select name="menu">
+      <option value="none">Choose One</option>
+      <!--Fills out the drop down menu with incomplete movies-->
+      {%for item in polist%}
+      <option value="{{item['person_id']}}">{{item['name']}}</option>
+{%endfor%}
+    </select>
+    <input type="submit" name="submit" value="Add to List">
+</form>
+
+
+
+    <ol> 
+        {% for person in userlist %} 
+        <li data-name = "person_name"><a href="{{url_for('politician',person_id=person['person_id'])}}">{{person['name']}}</a>
+        <form method=POST action="{{url_for('update',person_id=person['person_id'])}}">
+            <input type="hidden" id="person_id" value={{person.person_id}}>
+            <label for = "menu"> Current Stance: {{person['feeling']}} </label>
+            <select name="menu">
+                <option value="none">Update your stance on politician</option>
+                <option value="opposes">Oppose</option>
+                <option value="strongly opposes">Strongly Oppose</option>
+                <option value="Neutral">Neutral</option>
+                <option value="supports">Support</option>
+                <option value="strongly supports">Strongly Support</option>
+          
+            </select>
+            <input type="submit" name="submit" value="choose">
+            <input type="submit" name="submit" value="delete"></form>
+        </li> 
+    
+        {% endfor %}    
+    </ol>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+    <script src="{{url_for('static', filename = 'event_handler.js')}}"></script>
+
+
+{%endblock%}
+
+
+

@@ -1,0 +1,31 @@
+ {% extends "base.html" %}
+
+{% block main_content %}
+<h2> Search Politician by Name </h2>
+
+    <form method=POST action="{{url_for('results')}}">
+        <label>Name: </label>
+        <input name="search-name" value="">
+        <input type="submit" name="submit-nm" value="Name!">
+    </form>
+
+<h2>Find Elections For Your Zipcode </h2>
+
+    <form method=POST action="{{url_for('results')}}">
+        <label>Zipcode: </label>
+        <input name="search-zipcode" value="">
+        <input type="submit" name="submit-zc" value="Zipcode!">
+    </form>
+
+<h2>Upload Data on a Politician</h2>
+    <form action = "{{url_for('mainupload')}}" method = "POST" >
+    <label for="politician">Upload Details on a Politician </label>
+    <input type = "submit" value="Upload">
+ </form>
+
+     
+
+
+
+{% endblock %}
+    

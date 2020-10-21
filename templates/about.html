@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<div>
+
+    <p> Hey! We're team Zipvote, feel free to explore the website </p>
+    <p> We started this project so that people could find out voting information in the state of MA, fast!</p>
+    <p> The site should be pretty easy to navigate, just hit "Home" and type your zipcode into the provided bar to get started!</p>
+    <p> The Zipvote team met at Wellesley's CS 304 Databases class and united under a shared interest in political activism and computer science.</p>
+    <p>We believe everyone should have access to quick, reliable and condensed information!</p>
+</div>
+
+<p>Page likes:
+    <button id="thumb_up">&#x1F44D;</button> <span id="up_votes">0</span>
+    <button id="thumb_down">&#x1F44E;</button> <span id="down_votes">0</span> </p>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script> 
+ var global_response;
+    function update_page(resp) {
+        global_response = resp;
+        console.log('response is',resp);
+        $('#up_votes').text(resp.up);
+        $('#down_votes').text(resp.down);
+    }
+  
+    var update_url = "{{url_for('updateAbout2')}}";
+  
+    $("#thumb_up").on('click', function (evt) {
+        $.post(update_url, {up: true}, update_page);
+    });
+
+    $("#thumb_down").on('click', function (evt) {
+      $.post(update_url, {down: true}, update_page);
+  });
+</script>
+
+{% endblock %}

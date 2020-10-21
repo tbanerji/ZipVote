@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<div class = "textStuff">
+<p> Zipcode state: {{ zinfo.state }}, city:
+    {{ zinfo.city_or_town }}, county: {{ zinfo.county }}
+</p>
+
+<p> Here are your elected officials for zipcode {{ zinfo.zipcode }}!: </p>
+    <ol  class = "a"> 
+    {% for person in politician %} 
+
+
+
+    <li><a href="{{url_for('politician',person_id=person['person_id'])}}">{{person['name']}}</a></li>
+    {% endfor %}    
+</ol>
+</div>
+{% endblock %}

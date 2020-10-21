@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <title>ZipVote</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'style.css')}}">
+    <meta name=author content="Tarini Banerji, Isabelle Bevier,Sarah Sanson">
+</head>
+    <!-- thanks to https://www.youtube.com/watch?v=FEmysQARWFU - followed tutorial for nav bar. -->
+<body> 
+    <header>
+      <div class="container"> 
+        <nav>
+          <ul>
+            <li><img src="https://github.com/sarahsanson/zipvote/blob/master/ZipvoteTitle_V2.png?raw=true"
+              alt="logo" class="logo" width= "200" height= "100"></li>
+            <li> <a href = "{{url_for('index')}}">Home</a></li>
+            <li> <a href = "{{url_for('aboutus')}}">About Us</a></li>
+            <li> <a href = "{{url_for('userpage')}}">Your Page</a></li>
+            <li> <a href = "https://www.mass.gov/topics/voting">How to Vote in Massachussetts</a></li>
+            <li> <form method=POST action="/results/">
+              <label>Zipcode: </label>
+              <input name="search-zipcode" value=""> 
+              <input type="submit" name="submit-zc" value="Zipcode!">
+            </form> </li> 
+            <li>
+              <form id="login" action="/choose/" method="POST"> 
+                <select name=menu>
+                  <option value="Login">Login with Existing Account</option>
+                  <option value="Create">Create New Account</option>
+                </select>
+                <input type="submit" name="submit" value="choose">
+              </form>
+            </li>
+
+            <li>
+              <form id="logoutform" action="{{url_for('logout')}}">
+                <button type="submit" name = "logout">logout</button>
+              </form>
+            </li>
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div id="messages">
+      {% for msg in messages %}
+      <p>{{msg}}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <h2>Welcome to ZipVote! Where political interest meets informed choices...</h2>
+
+  {% block main_content %}
+  {% endblock %}
+
+</body>
+</html>

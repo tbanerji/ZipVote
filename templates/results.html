@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <h1>Politicians matching {{searched}}:</h1>
+    <ol id ="2"> 
+        {% for poli in plist %} 
+        <li><a href="{{url_for('politician',person_id = poli['person_id'])}}">{{ poli["name"] }}</a></li>
+        {% endfor %}    
+    </ol>
+    <a href="{{url_for('index')}}">Return to Main Page</a>
+
+{% endblock %}

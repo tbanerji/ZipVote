@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h2> Upload a File </h2>
+<p>On this page, you can upload a pdf, doc or docx file with data on a politician. 
+      We will review it and update the information to our site if valid. 
+      Please include sources!</p>
+<form action = "{{url_for('uploading')}}" method = "POST" 
+         enctype = "multipart/form-data">
+         <label for="politician">Politicians to update data on</label>
+         <select name="politician">
+               <option value="none">Choose the Politician for whom you are uploading data</option> 
+               {%for item in polist%}
+               <option value="{{item['person_id']}}">{{item['name']}}</option>
+               {%endfor%}
+         </select>
+         <label>File:<input type = "file" name = "file" /></label>
+         <input type = "submit" value="Upload"/>
+         </select>
+      </form>
+
+{%endblock%}

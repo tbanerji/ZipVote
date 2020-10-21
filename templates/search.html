@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<h2> Search Politician by Name </h2>
+
+    <form method=POST action="url_for('templates', filename = 'search.html')">
+        <label for="search-name">Name: </label>
+        <input name="search-name" value="">
+        <input type="submit" name="submit-nm" value="Name!">
+    </form>
+
+<h2> Or Find Elections For Your Zipcode </h2>
+
+    <form method=POST action="url_for('templates', filename = 'search.html')">
+        <label for="search-zipcode">Zipcode: </label>
+        <input name="search-zipcode" value="">
+        <input type="submit" name="submit-zc" value="Zipcode!">
+    </form>
+
+{% endblock %}
+    
+
